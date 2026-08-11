@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useDragControls } from 'framer-motion';
-import { Minus, Square, X } from 'lucide-react';
+
 import GlassPanel from './GlassPanel';
 import { WindowState, useWindowStore } from '../stores/windowStore';
 import { useAppStore } from '../stores/appStore';
@@ -49,22 +49,23 @@ const Window: React.FC<WindowProps> = ({ windowState }) => {
       <GlassPanel className="w-full h-full flex flex-col rounded-xl overflow-hidden border-white/20 border">
         {/* Title Bar */}
         <div 
-          className="h-10 border-b border-white/10 bg-white/5 flex items-center justify-between px-4 cursor-grab active:cursor-grabbing"
+          className="h-10 border-b border-white/10 bg-white/5 flex items-center px-4 relative cursor-grab active:cursor-grabbing"
           onPointerDown={(e) => {
             if (state !== 'maximized') dragControls.start(e);
           }}
         >
-          <div className="text-sm font-medium text-white/80" id={`window-title-${id}`}>{appDef?.name || app}</div>
-          <div className="flex items-center space-x-2">
-            <button aria-label="Minimize" onClick={(e) => { e.stopPropagation(); minimizeWindow(id); }} className="w-6 h-6 rounded-full hover:bg-white/10 flex items-center justify-center text-white/70 transition-colors">
-              <Minus size={14} />
-            </button>
-            <button aria-label="Maximize" onClick={(e) => { e.stopPropagation(); maximizeWindow(id); }} className="w-6 h-6 rounded-full hover:bg-white/10 flex items-center justify-center text-white/70 transition-colors">
-              <Square size={12} />
-            </button>
-            <button aria-label="Close" onClick={(e) => { e.stopPropagation(); closeWindow(id); }} className="w-6 h-6 rounded-full hover:bg-red-500 hover:text-white flex items-center justify-center text-white/70 transition-colors">
-              <X size={14} />
-            </button>
+          {/* macOS style buttons (Left) */}
+          <div className="flex items-center space-x-2 z-10">
+            <button aria-label="Close" onClick={(e) => { e.stopPropagation(); closeWindow(id); }} className="w-3.5 h-3.5 rounded-full bg-[#ff5f56] hover:bg-[#ff5f56]/80 transition-colors shadow-sm" />
+            <button aria-label="Minimize" onClick={(e) => { e.stopPropagation(); minimizeWindow(id); }} className="w-3.5 h-3.5 rounded-full bg-[#ffbd2e] hover:bg-[#ffbd2e]/80 transition-colors shadow-sm" />
+            <button aria-label="Maximize" onClick={(e) => { e.stopPropagation(); maximizeWindow(id); }} className="w-3.5 h-3.5 rounded-full bg-[#27c93f] hover:bg-[#27c93f]/80 transition-colors shadow-sm" />
+          </div>
+
+          {/* Title (Center) */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="text-sm font-medium text-white/80" id={`window-title-${id}`}>
+              {appDef?.name || app}
+            </div>
           </div>
         </div>
 

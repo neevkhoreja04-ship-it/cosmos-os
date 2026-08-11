@@ -20,7 +20,7 @@ const WidgetLayer: React.FC = () => {
   const { widgets } = useWidgetStore();
 
   return (
-    <div className="absolute inset-0 pointer-events-none z-10">
+    <div className="absolute inset-0 pointer-events-none z-0">
       {widgets.map((widget) => {
         const WidgetComponent = WidgetMap[widget.type];
         if (!WidgetComponent) return null;
