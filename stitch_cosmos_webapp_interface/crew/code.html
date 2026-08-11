@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Crew - Cosmos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;family=Sora:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#33394c",
+                        "surface-variant": "#2e3447",
+                        "inverse-on-surface": "#2a3043",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface-container": "#191f31",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "on-primary-fixed": "#07006c",
+                        "on-primary": "#1000a9",
+                        "outline": "#908fa0",
+                        "on-secondary": "#490080",
+                        "primary-container": "#8083ff",
+                        "on-surface-variant": "#c7c4d7",
+                        "surface-dim": "#0c1324",
+                        "inverse-primary": "#494bd6",
+                        "surface-tint": "#c0c1ff",
+                        "on-background": "#dce1fb",
+                        "outline-variant": "#464554",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "tertiary-container": "#4d8eff",
+                        "surface-container-highest": "#2e3447",
+                        "primary-fixed": "#e1e0ff",
+                        "on-tertiary": "#002e6a",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "on-secondary-fixed-variant": "#6900b3",
+                        "surface-container-lowest": "#070d1f",
+                        "on-secondary-fixed": "#2c0051",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "secondary-container": "#6f00be",
+                        "on-surface": "#dce1fb",
+                        "background": "#0c1324",
+                        "error": "#ffb4ab",
+                        "secondary": "#ddb7ff",
+                        "on-error": "#690005",
+                        "tertiary": "#adc6ff",
+                        "primary": "#c0c1ff",
+                        "surface": "#0c1324",
+                        "on-primary-container": "#0d0096",
+                        "surface-container-low": "#151b2d",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#d6a9ff",
+                        "on-tertiary-fixed": "#001a42",
+                        "on-tertiary-container": "#00285d",
+                        "secondary-fixed-dim": "#ddb7ff",
+                        "inverse-surface": "#dce1fb",
+                        "surface-container-high": "#23293c",
+                        "secondary-fixed": "#f0dbff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "3rem",
+                        "container-max": "1440px",
+                        "margin-desktop": "4rem",
+                        "margin-mobile": "1.5rem",
+                        "gutter": "2rem",
+                        "stack-md": "1.5rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Sora"],
+                        "headline-xl": ["Sora"],
+                        "label-caps": ["JetBrains Mono"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "display-lg-mobile": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "stats-number": ["Sora"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["84px", { "lineHeight": "90px", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "stats-number": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0c1324;
+            color: #dce1fb;
+        }
+        .glass-panel {
+            background: rgba(25, 31, 49, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 40px rgba(128, 131, 255, 0.2);
+            border-color: rgba(192, 193, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+<!-- Top Navigation for Web -->
+<header class="hidden md:flex justify-between items-center w-full px-margin-desktop py-6 z-50 fixed top-0 bg-transparent bg-gradient-to-b from-surface-dim/80 to-transparent backdrop-blur-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">rocket_launch</span>
+<span class="font-display-lg text-headline-lg tracking-tighter text-primary-fixed">COSMOS</span>
+</div>
+<nav class="flex gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps uppercase" href="#">Universe</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps uppercase" href="#">Missions</a>
+<a class="text-primary font-bold hover:text-primary transition-colors duration-300 font-label-caps text-label-caps uppercase relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-[2px] after:bg-primary" href="#">Crew</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps uppercase" href="#">Launches</a>
+</nav>
+<button class="bg-gradient-to-r from-primary-container to-secondary-container text-white px-6 py-3 rounded-full font-label-caps text-label-caps hover:shadow-[0_0_20px_rgba(128,131,255,0.4)] transition-all uppercase tracking-widest scale-95 active:scale-90 flex items-center gap-2">
+            LAUNCH
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</header>
+<!-- TopAppBar for Mobile -->
+<header class="md:hidden flex justify-between items-center w-full px-margin-mobile py-4 z-50 fixed top-0 bg-gradient-to-b from-surface-dim/80 to-transparent backdrop-blur-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">rocket_launch</span>
+<span class="font-display-lg text-headline-lg-mobile tracking-tighter text-primary-fixed">COSMOS</span>
+</div>
+<button class="bg-gradient-to-r from-primary-container to-secondary-container text-white px-4 py-2 rounded-full font-label-caps text-label-caps hover:shadow-[0_0_20px_rgba(128,131,255,0.4)] transition-all uppercase tracking-widest scale-95 active:scale-90 flex items-center gap-1">
+            LAUNCH
+        </button>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-24 md:pt-32 pb-32 md:pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10">
+<!-- Hero Section -->
+<section class="mb-stack-lg relative">
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary-container/10 via-background to-background rounded-3xl -z-10 blur-3xl"></div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-2 h-2 rounded-full bg-error animate-pulse shadow-[0_0_10px_rgba(255,180,171,0.8)]"></div>
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-widest">Primary Crew Manifest</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl md:font-display-lg md:text-display-lg text-primary-fixed mb-6 uppercase">Mission <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Specialists</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Meet the vanguard of human exploration. These exceptional individuals represent the culmination of scientific rigorousness and indomitable human spirit, pushing the boundaries of our known universe.</p>
+</section>
+<!-- Crew Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter mb-stack-lg">
+<!-- Crew Member 1 -->
+<div class="glass-panel rounded-2xl overflow-hidden group glow-hover transition-all duration-500 relative">
+<div class="h-64 w-full relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="A cinematic, medium-shot portrait of a female astronaut in a sleek, modern white and charcoal grey spacesuit without the helmet. She is looking thoughtfully off-camera. The background is a dimly lit, futuristic space station interior with subtle neon blue and purple lights. High contrast, premium dramatic lighting, moody and aspirational." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC0QvxBAI_UUuMU3aKS5ALETmbM-9M93q0bLapF8WkxTOXmWbrM7I9G9Khmfl68Yu3SYV1dcQfr_FLbM5LJmK3NQQ-mnzZlxfWs9zli-QWALwdR3p2D_9MIUtXuuA4oZKS6VXhYc_W7bfUg7M1WSOX3YBafngcZs0FNsc68a_lqp7coom3GtxJjF3bX5DASbeSTIlAQ1jq3u0siHD8bRXhABBYjqafznYsdxQInP9z5O6GPv6mzUcjK')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent"></div>
+<div class="absolute top-4 right-4 bg-primary-container/20 backdrop-blur-md px-3 py-1 rounded-full border border-primary/20">
+<span class="font-label-caps text-label-caps text-primary uppercase">Commander</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-lg text-headline-lg text-primary-fixed mb-1">Dr. Elena Rostova</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Astrophysicist &amp; Veteran Pilot</p>
+<div class="flex items-center gap-4 border-t border-outline-variant/30 pt-4">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-outline mb-1">MISSIONS</span>
+<span class="font-stats-number text-stats-number text-primary">04</span>
+</div>
+<div class="w-px h-8 bg-outline-variant/30"></div>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-outline mb-1">EVA HOURS</span>
+<span class="font-stats-number text-stats-number text-primary">142</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Crew Member 2 -->
+<div class="glass-panel rounded-2xl overflow-hidden group glow-hover transition-all duration-500 relative">
+<div class="h-64 w-full relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="A cinematic, medium-shot portrait of a male astronaut in a dark grey, high-tech flight suit. He is looking directly at the camera with a determined expression. The background features a large viewport showing a glowing, vibrant nebula in deep purple and indigo hues. High contrast, futuristic, premium sci-fi aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCDOw0A4KhFyGEDOsHfQZpakfQeoP_NOkSnRzChHM8LywytnxaIHyPmjvj-3stjIlc-1TRYMZd8nBi8sw_ebc69cV_ahYQ0rmXnkYtM0S-o2zfo4GVRsblCz4Jpxoqfj6Mjgt-XUlOj8fFqJ3V1H1_dDRCZu2aRK9XiTKYYfOKoTCG1OH5Dym2vaAg5taZXYpgqTN4D9hpeEsZ1jy362rGj-D7Ec-i1PvAM42ruy21LYe10erDfmdSG')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent"></div>
+<div class="absolute top-4 right-4 bg-secondary-container/20 backdrop-blur-md px-3 py-1 rounded-full border border-secondary/20">
+<span class="font-label-caps text-label-caps text-secondary uppercase">Pilot</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-lg text-headline-lg text-primary-fixed mb-1">Marcus Thorne</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Aerospace Engineer</p>
+<div class="flex items-center gap-4 border-t border-outline-variant/30 pt-4">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-outline mb-1">MISSIONS</span>
+<span class="font-stats-number text-stats-number text-primary">02</span>
+</div>
+<div class="w-px h-8 bg-outline-variant/30"></div>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-outline mb-1">EVA HOURS</span>
+<span class="font-stats-number text-stats-number text-primary">56</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Crew Member 3 -->
+<div class="glass-panel rounded-2xl overflow-hidden group glow-hover transition-all duration-500 relative">
+<div class="h-64 w-full relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="A cinematic, medium-shot portrait of a female scientist in a minimalist, futuristic lab coat over a dark flight suit. She is adjusting a specialized visual display headset. The background is a clean, hyper-modern laboratory setting with subtle blue holographic displays. High contrast, cinematic lighting, sleek and premium." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDM-l1NSs4ZyK_1OfLbENSxvAOtXEOsx8cGAs7pnYw-3FMT-h9ITrlLGedsf_SgWfjy0Sitk3VKRacZjRqdYfLXijfmIFL6j_t1fdIANkxTDKySo5zNCJkTk5fIg2eCoWck-_lu3EiFRUkxUsWum8k5bm0vpCcg-IAatexSpJGIvaQSBd5e6Sr4D2-yo6vz0xERmYKRU5tUWh7XVUjDT0zU2p_7hMKc7yDY2ZkTGSIwGW6jV716RGPB')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent"></div>
+<div class="absolute top-4 right-4 bg-tertiary-container/20 backdrop-blur-md px-3 py-1 rounded-full border border-tertiary/20">
+<span class="font-label-caps text-label-caps text-tertiary uppercase">Chief Scientist</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-lg text-headline-lg text-primary-fixed mb-1">Dr. Sarah Chen</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Xenobiologist</p>
+<div class="flex items-center gap-4 border-t border-outline-variant/30 pt-4">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-outline mb-1">MISSIONS</span>
+<span class="font-stats-number text-stats-number text-primary">01</span>
+</div>
+<div class="w-px h-8 bg-outline-variant/30"></div>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-outline mb-1">EVA HOURS</span>
+<span class="font-stats-number text-stats-number text-primary">12</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- EVA Crew Section -->
+<section>
+<div class="flex items-center justify-between mb-8 border-b border-outline-variant/30 pb-4">
+<h2 class="font-headline-lg text-headline-lg text-primary-fixed uppercase tracking-wide">EVA Specialists</h2>
+<a class="font-label-caps text-label-caps text-primary hover:text-primary-fixed flex items-center gap-1 transition-colors" href="#">
+                    VIEW ALL
+                    <span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-gutter">
+<!-- EVA 1 -->
+<div class="glass-panel rounded-xl p-4 text-center group hover:bg-surface-bright/30 transition-all cursor-pointer">
+<div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-4 border-2 border-surface-variant group-hover:border-primary transition-colors">
+<div class="w-full h-full bg-cover bg-center" data-alt="A close-up headshot of a rugged male astronaut looking forward. Cinematic rim lighting highlighting his features against a pure dark background. High contrast, professional." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD7ieyRr6A-a5a1gu8Fwz8U9OGRTzpH_mk2KtZe41iOIxTgz-CrQRCkIbHmNq_pFoMddTPfEgVn6q8q3YhnDyFsyOp1ZLQDoMhffg83Os2LaIgsoa0WTBJlojhdgJ_ZAI2L0C_1hq67tUutAArQDDz-QLAczLtA3jtfXnN7o__KEIA0MUXjzGPVoV84TH2rvfSzJD4zFWZFvwdwwSfOBuSP0wfZV_K52QOkPPDNolI9ScIgF_nrPGEv')"></div>
+</div>
+<h4 class="font-body-lg text-body-lg text-on-surface mb-1">J. Vance</h4>
+<span class="font-label-caps text-[10px] text-outline uppercase block">EVA Lead</span>
+</div>
+<!-- EVA 2 -->
+<div class="glass-panel rounded-xl p-4 text-center group hover:bg-surface-bright/30 transition-all cursor-pointer">
+<div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-4 border-2 border-surface-variant group-hover:border-primary transition-colors">
+<div class="w-full h-full bg-cover bg-center" data-alt="A close-up headshot of a female astronaut with short hair looking slightly upwards. Cinematic lighting with a faint purple hue against a pure dark background. High contrast, professional." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC0UtxngVZmsWrURrND8h6khDMS6LlctAlax0ff2gpbGqTnVFcxfI97pnNwFmiQFDNcSZtnAIpB4VcOhHipzokRlt84vqV_oGD6wo8ewi750JqUJJJ0f3YcV3RUCykAWRRbnt5wHBefBYy7yRRkAI48G0zI6YPYkshLYGr8_-QRCmqr9YILEGbeoUywDo17RpWXMJm_Nu4sc7G16V5hSFTIE4ouy63KWUmbkFx5ypxsxSyk3j8Y79S8')"></div>
+</div>
+<h4 class="font-body-lg text-body-lg text-on-surface mb-1">K. Odim</h4>
+<span class="font-label-caps text-[10px] text-outline uppercase block">Systems</span>
+</div>
+<!-- EVA 3 -->
+<div class="glass-panel rounded-xl p-4 text-center group hover:bg-surface-bright/30 transition-all cursor-pointer">
+<div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-4 border-2 border-surface-variant group-hover:border-primary transition-colors">
+<div class="w-full h-full bg-cover bg-center" data-alt="A close-up headshot of a male astronaut with a beard. Soft, cool blue cinematic lighting illuminating one side of his face against a dark background. High contrast, professional." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBVD3TNueSj30W-0RSQv1dOeBWY8CCc5dwtGOEBN5WwR8EaNtaXWJpX-FhMTUhocFGjenTiCKuZ-vjN4zXtZEYMrzGsVbzyF7vA7szKcZuPfEwDUDxFSPmjkNxcic3fOT3XZu-njSK_LvycQZ-Gpcwtr4uLxHgNFlA9nfsGqaL0L0x-QMSxpQKouKI2F07ngNK8aXGgCMcJKts4yPji-T6k6TNPW_33SK8bDHD35F2KhiNjmr6pKouJ')"></div>
+</div>
+<h4 class="font-body-lg text-body-lg text-on-surface mb-1">D. Reyes</h4>
+<span class="font-label-caps text-[10px] text-outline uppercase block">Robotics</span>
+</div>
+<!-- EVA 4 -->
+<div class="glass-panel rounded-xl p-4 text-center group hover:bg-surface-bright/30 transition-all cursor-pointer flex flex-col items-center justify-center min-h-[160px]">
+<span class="material-symbols-outlined text-outline text-3xl mb-2 group-hover:text-primary transition-colors">add</span>
+<span class="font-label-caps text-[10px] text-outline uppercase group-hover:text-primary transition-colors">View Roster</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-surface-container/20 border-t border-outline-variant/10 backdrop-blur-xl shadow-[0_-8px_40px_rgba(128,131,255,0.1)] docked full-width rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-bright/50 transition-all rounded-xl w-16" href="#">
+<span class="material-symbols-outlined mb-1 text-xl">explore</span>
+<span class="font-label-caps text-[10px] uppercase">Universe</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-bright/50 transition-all rounded-xl w-16" href="#">
+<span class="material-symbols-outlined mb-1 text-xl">rocket</span>
+<span class="font-label-caps text-[10px] uppercase">Missions</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary-fixed font-bold bg-primary-container/20 rounded-xl p-2 hover:bg-surface-bright/50 transition-all w-16 scale-95 duration-200" href="#">
+<span class="material-symbols-outlined mb-1 text-xl" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-caps text-[10px] uppercase">Crew</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-bright/50 transition-all rounded-xl w-16" href="#">
+<span class="material-symbols-outlined mb-1 text-xl">event_upcoming</span>
+<span class="font-label-caps text-[10px] uppercase">Launches</span>
+</a>
+</nav>
+</body></html>

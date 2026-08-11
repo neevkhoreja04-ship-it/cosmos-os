@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Launch Tracker - COSMOS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Sora:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-bright": "#33394c",
+                        "surface-variant": "#2e3447",
+                        "inverse-on-surface": "#2a3043",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface-container": "#191f31",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "on-primary-fixed": "#07006c",
+                        "on-primary": "#1000a9",
+                        "outline": "#908fa0",
+                        "on-secondary": "#490080",
+                        "primary-container": "#8083ff",
+                        "on-surface-variant": "#c7c4d7",
+                        "surface-dim": "#0c1324",
+                        "inverse-primary": "#494bd6",
+                        "surface-tint": "#c0c1ff",
+                        "on-background": "#dce1fb",
+                        "outline-variant": "#464554",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "tertiary-container": "#4d8eff",
+                        "surface-container-highest": "#2e3447",
+                        "primary-fixed": "#e1e0ff",
+                        "on-tertiary": "#002e6a",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "on-secondary-fixed-variant": "#6900b3",
+                        "surface-container-lowest": "#070d1f",
+                        "on-secondary-fixed": "#2c0051",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "secondary-container": "#6f00be",
+                        "on-surface": "#dce1fb",
+                        "background": "#0c1324",
+                        "error": "#ffb4ab",
+                        "secondary": "#ddb7ff",
+                        "on-error": "#690005",
+                        "tertiary": "#adc6ff",
+                        "primary": "#c0c1ff",
+                        "surface": "#0c1324",
+                        "on-primary-container": "#0d0096",
+                        "surface-container-low": "#151b2d",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#d6a9ff",
+                        "on-tertiary-fixed": "#001a42",
+                        "on-tertiary-container": "#00285d",
+                        "secondary-fixed-dim": "#ddb7ff",
+                        "inverse-surface": "#dce1fb",
+                        "surface-container-high": "#23293c",
+                        "secondary-fixed": "#f0dbff"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        "stack-lg": "3rem",
+                        "container-max": "1440px",
+                        "margin-desktop": "4rem",
+                        "margin-mobile": "1.5rem",
+                        "gutter": "2rem",
+                        "stack-md": "1.5rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Sora", "sans-serif"],
+                        "headline-xl": ["Sora", "sans-serif"],
+                        "label-caps": ["JetBrains Mono", "monospace"],
+                        "body-lg": ["Hanken Grotesk", "sans-serif"],
+                        "body-md": ["Hanken Grotesk", "sans-serif"],
+                        "display-lg-mobile": ["Sora", "sans-serif"],
+                        "headline-lg": ["Sora", "sans-serif"],
+                        "stats-number": ["Sora", "sans-serif"]
+                    },
+                    fontSize: {
+                        "display-lg": ["84px", { lineHeight: "90px", letterSpacing: "-0.04em", fontWeight: "800" }],
+                        "headline-xl": ["48px", { lineHeight: "56px", fontWeight: "700" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.1em", fontWeight: "500" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "display-lg-mobile": ["48px", { lineHeight: "52px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "600" }],
+                        "stats-number": ["24px", { lineHeight: "32px", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(12, 19, 36, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(192, 193, 255, 0.15);
+        }
+        .glow-effect {
+            box-shadow: 0 0 40px rgba(128, 131, 255, 0.15);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #c0c1ff, #ddb7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #494bd6, #6f00be);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Background Image -->
+<div class="fixed inset-0 z-0 pointer-events-none">
+<div class="absolute inset-0 bg-cover bg-center opacity-40" data-alt="A cinematic, high-contrast image of a rocket on a launchpad at night, illuminated by intense spotlights cutting through thick atmospheric fog. The sky above is deep obsidian with a scattering of distant stars. The visual style is premium and hyper-realistic, reflecting a modern, tech-forward aesthetic with deep blacks and vibrant, glowing mechanical details." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC9Lk1oB0XQsJDLoQJUmLXc1ARZ75Ex0sVijf2sHmNdILX71OSY_9EyQizzXaEwVfXq3USdkkizuosPHKR_5VPlyjR2wIJJ-ZNhKGrkwPZjAaG5XoYn_zmKOzAi6Wyr266En-B16uCiH2je9lkBGj7dt3aEEvUE4b2wLyYXPoNe3aoDaVPwFJRj_Z1edAJZvHiinxttgJ9q3n0H3UvsDrghydO_HXyhc14I6DDoDjrxrsOSWNN6KH4h')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
+</div>
+<!-- Top Navigation (Desktop) -->
+<header class="hidden md:flex justify-between items-center w-full px-margin-desktop py-6 z-50 absolute top-0 left-0 bg-gradient-to-b from-surface-dim/80 to-transparent backdrop-blur-md">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined font-variation-settings: 'FILL' 1; text-2xl">rocket_launch</span>
+<span class="font-display-lg text-headline-lg tracking-tighter text-primary-fixed uppercase">COSMOS</span>
+</div>
+<nav class="flex gap-8">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 uppercase" href="#">Universe</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 uppercase" href="#">Missions</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 uppercase" href="#">Crew</a>
+<a class="font-label-caps text-label-caps text-primary font-bold hover:text-primary transition-colors duration-300 uppercase" href="#">Launches</a>
+</nav>
+<button class="bg-primary/10 border border-primary/30 text-primary px-6 py-2 rounded-full font-label-caps text-label-caps hover:bg-primary/20 transition-all uppercase glow-effect flex items-center gap-2">
+<span>LAUNCH</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</header>
+<!-- Top Navigation (Mobile) -->
+<header class="md:hidden flex justify-between items-center w-full px-margin-mobile py-4 z-50 absolute top-0 left-0 bg-gradient-to-b from-surface-dim/80 to-transparent backdrop-blur-md">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined font-variation-settings: 'FILL' 1;">rocket_launch</span>
+<span class="font-display-lg-mobile text-headline-lg-mobile tracking-tighter text-primary-fixed uppercase">COSMOS</span>
+</div>
+<button class="text-primary font-label-caps text-label-caps uppercase">LAUNCH</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="relative z-10 container mx-auto px-margin-mobile md:px-margin-desktop pt-32 pb-32 min-h-screen flex flex-col justify-center">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Left Column: Countdown & Primary Action -->
+<div class="col-span-1 lg:col-span-7 flex flex-col gap-stack-lg">
+<div>
+<div class="flex items-center gap-3 mb-4">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-error uppercase tracking-[0.2em]">Live Tracking</span>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-on-surface uppercase leading-none mb-2">
+                        MISSION<br/>
+<span class="text-transparent" style="-webkit-text-stroke: 1px #8083ff;">ARTEMIS</span> II
+                    </h1>
+<p class="font-body-lg text-on-surface-variant max-w-xl mt-6">
+                        Humanity returns to deep space. Tracking critical launch parameters, weather conditions, and trajectory data for the next crewed lunar mission.
+                    </p>
+</div>
+<!-- Timer -->
+<div class="glass-panel rounded-xl p-8 max-w-2xl glow-effect">
+<div class="font-label-caps text-label-caps text-outline mb-4">T-MINUS</div>
+<div class="grid grid-cols-4 gap-4 text-center">
+<div>
+<div class="font-display-lg-mobile md:font-display-lg text-primary-fixed">04</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant mt-2">HOURS</div>
+</div>
+<div>
+<div class="font-display-lg-mobile md:font-display-lg text-primary-fixed">12</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant mt-2">MINUTES</div>
+</div>
+<div>
+<div class="font-display-lg-mobile md:font-display-lg text-primary-fixed">45</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant mt-2">SECONDS</div>
+</div>
+<div>
+<div class="font-display-lg-mobile md:font-display-lg text-primary-fixed">89</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant mt-2">MS</div>
+</div>
+</div>
+</div>
+<div class="flex gap-4 items-center">
+<button class="bg-gradient-primary text-white px-8 py-4 rounded-full font-label-caps text-label-caps uppercase tracking-wider hover:opacity-90 transition-opacity glow-effect flex items-center gap-3">
+<span class="material-symbols-outlined">play_circle</span>
+                        Watch Live Feed
+                    </button>
+<button class="glass-panel px-6 py-4 rounded-full text-on-surface hover:bg-surface-bright/50 transition-colors font-label-caps text-label-caps flex items-center gap-2">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+<!-- Right Column: Telemetry Data -->
+<div class="col-span-1 lg:col-span-5 flex flex-col gap-4">
+<!-- Data Card 1 -->
+<div class="glass-panel rounded-lg p-6 relative overflow-hidden group hover:border-primary/50 transition-colors">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="font-label-caps text-label-caps text-outline">WEATHER GO</div>
+<span class="material-symbols-outlined text-primary text-xl">air</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<div class="font-stats-number text-stats-number text-on-surface">78°F</div>
+<div class="text-xs text-on-surface-variant font-body-md mt-1 border-b border-surface-variant pb-1">Temperature</div>
+</div>
+<div>
+<div class="font-stats-number text-stats-number text-on-surface">12kts</div>
+<div class="text-xs text-on-surface-variant font-body-md mt-1 border-b border-surface-variant pb-1">Wind Shear</div>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<div class="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%]"></div>
+</div>
+<span class="text-xs text-primary font-label-caps">85% OPTIMAL</span>
+</div>
+</div>
+<!-- Data Card 2 -->
+<div class="glass-panel rounded-lg p-6 relative overflow-hidden group hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-start mb-4">
+<div class="font-label-caps text-label-caps text-outline">VEHICLE STATUS</div>
+<span class="material-symbols-outlined text-primary text-xl">speed</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<div class="font-stats-number text-stats-number text-on-surface">NOMINAL</div>
+<div class="text-xs text-on-surface-variant font-body-md mt-1 border-b border-surface-variant pb-1">Propulsion</div>
+</div>
+<div>
+<div class="font-stats-number text-stats-number text-on-surface">98%</div>
+<div class="text-xs text-on-surface-variant font-body-md mt-1 border-b border-surface-variant pb-1">Fuel Load</div>
+</div>
+</div>
+</div>
+<!-- Data Card 3 -->
+<div class="glass-panel rounded-lg p-6 relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<div class="font-label-caps text-label-caps text-outline">ORBITAL TARGET</div>
+<span class="material-symbols-outlined text-primary text-xl">public</span>
+</div>
+<div class="flex items-end justify-between">
+<div>
+<div class="font-stats-number text-stats-number text-on-surface">384,400<span class="text-sm text-outline ml-1">KM</span></div>
+<div class="text-xs text-on-surface-variant font-body-md mt-1 border-b border-surface-variant pb-1">Distance to Moon</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-surface-container/20 border-t border-outline-variant/10 backdrop-blur-xl shadow-[0_-8px_40px_rgba(128,131,255,0.1)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-bright/50 transition-all rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="font-label-caps text-label-caps text-[10px]">Universe</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-bright/50 transition-all rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">rocket</span>
+<span class="font-label-caps text-label-caps text-[10px]">Missions</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-bright/50 transition-all rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">group</span>
+<span class="font-label-caps text-label-caps text-[10px]">Crew</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary-fixed font-bold bg-primary-container/20 rounded-xl p-2 active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined font-variation-settings: 'FILL' 1; mb-1">event_upcoming</span>
+<span class="font-label-caps text-label-caps text-[10px]">Launches</span>
+</a>
+</nav>
+</body></html>

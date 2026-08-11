@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cosmos - Journey Beyond</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Sora:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#33394c",
+                        "surface-variant": "#2e3447",
+                        "inverse-on-surface": "#2a3043",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface-container": "#191f31",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "on-primary-fixed": "#07006c",
+                        "on-primary": "#1000a9",
+                        "outline": "#908fa0",
+                        "on-secondary": "#490080",
+                        "primary-container": "#8083ff",
+                        "on-surface-variant": "#c7c4d7",
+                        "surface-dim": "#0c1324",
+                        "inverse-primary": "#494bd6",
+                        "surface-tint": "#c0c1ff",
+                        "on-background": "#dce1fb",
+                        "outline-variant": "#464554",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "tertiary-container": "#4d8eff",
+                        "surface-container-highest": "#2e3447",
+                        "primary-fixed": "#e1e0ff",
+                        "on-tertiary": "#002e6a",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "on-secondary-fixed-variant": "#6900b3",
+                        "surface-container-lowest": "#070d1f",
+                        "on-secondary-fixed": "#2c0051",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "secondary-container": "#6f00be",
+                        "on-surface": "#dce1fb",
+                        "background": "#0c1324",
+                        "error": "#ffb4ab",
+                        "secondary": "#ddb7ff",
+                        "on-error": "#690005",
+                        "tertiary": "#adc6ff",
+                        "primary": "#c0c1ff",
+                        "surface": "#0c1324",
+                        "on-primary-container": "#0d0096",
+                        "surface-container-low": "#151b2d",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#d6a9ff",
+                        "on-tertiary-fixed": "#001a42",
+                        "on-tertiary-container": "#00285d",
+                        "secondary-fixed-dim": "#ddb7ff",
+                        "inverse-surface": "#dce1fb",
+                        "surface-container-high": "#23293c",
+                        "secondary-fixed": "#f0dbff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "3rem",
+                        "container-max": "1440px",
+                        "margin-desktop": "4rem",
+                        "margin-mobile": "1.5rem",
+                        "gutter": "2rem",
+                        "stack-md": "1.5rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Sora"],
+                        "headline-xl": ["Sora"],
+                        "label-caps": ["JetBrains Mono"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "display-lg-mobile": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "stats-number": ["Sora"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["84px", { "lineHeight": "90px", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "stats-number": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #020617; /* Deep obsidian base */
+            color: #dce1fb;
+            overflow-x: hidden;
+        }
+        
+        /* Glassmorphism utilities */
+        .glass-panel {
+            background: rgba(25, 31, 49, 0.15); /* surface-container with low opacity */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .glass-card {
+            background: rgba(46, 52, 71, 0.2); /* surface-variant slightly more opaque */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Glowing Effects */
+        .glow-primary {
+            box-shadow: 0 0 40px rgba(128, 131, 255, 0.15); /* primary-container */
+        }
+        
+        .glow-accent {
+            box-shadow: 0 0 40px rgba(111, 0, 190, 0.2); /* secondary-container */
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(192, 193, 255, 0.3);
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(135deg, #c0c1ff, #ddb7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Custom typography utility for hollow text */
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 1px #8083ff;
+        }
+        
+        /* Hide scrollbar for stat container */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col relative">
+<!-- Background Image -->
+<div class="fixed inset-0 z-[-1]">
+<div class="w-full h-full bg-cover bg-center bg-no-repeat opacity-60 mix-blend-screen" data-alt="A breathtaking, cinematic view of a majestic, textured planet from space, massive in scale. The dark obsidian backdrop of the cosmos is subtly illuminated by distant starlight and nebulous dust in deep indigo and purple hues. The surface of the planet shows craters and atmospheric haze. High contrast, photorealistic, 8k resolution, capturing the awe and mystery of deep space exploration in a modern, moody aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA2yvRTjbY9tSJzH2d_nVGdnZvcbQfQs2tm_5h8bg37LXZ6exRhWRAvApMceulWAwDs9K1V4TiqmTUpVhVkIOUlotBbojCvaYlnSjMYhPkjiqfLbfrBKf2jlUSLXJABhqWakI_psRpRQqZAC4shabjo94dD5vhqDj6zvE0mBypEW0Ve4__remXE97__W0QlmcWUIrwyfpF3ho1lqf18N0hyPxHOV9hoEegAhnfK5SyPhmBXUpYVmiik')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-background/90 via-transparent to-background/40"></div>
+</div>
+<!-- Top Navigation (Mobile Header equivalent in prompt context, adapting JSON for mobile/responsive) -->
+<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 z-50 bg-gradient-to-b from-surface-dim/80 to-transparent backdrop-blur-md flat no shadows fixed top-0 left-0 w-full">
+<!-- Leading Icon / Brand -->
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl font-bold" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+<span class="font-display-lg-mobile text-headline-lg-mobile tracking-tighter text-primary-fixed">COSMOS</span>
+</div>
+<!-- Desktop Nav Links (Hidden on Mobile) -->
+<nav class="hidden md:flex gap-8">
+<a class="font-label-caps text-label-caps text-primary font-bold hover:text-primary transition-colors duration-300" href="#">UNIVERSE</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">MISSIONS</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">CREW</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">LAUNCH</a>
+</nav>
+<!-- Trailing Action -->
+<button class="hidden md:flex items-center justify-center bg-gradient-to-r from-primary-container to-secondary-container text-white px-6 py-2 rounded-full font-label-caps text-label-caps tracking-wider hover:glow-primary scale-95 active:scale-90 transition-all duration-300">
+            LAUNCH <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 pb-32 px-margin-mobile md:px-margin-desktop flex flex-col justify-center relative z-10 w-full max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center min-h-[70vh]">
+<!-- Hero Typography & Content (Left side on desktop, full on mobile) -->
+<div class="md:col-span-8 lg:col-span-9 flex flex-col gap-6 relative">
+<!-- Eyebrow -->
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full bg-error glow-accent"></span>
+<span class="font-label-caps text-label-caps text-on-surface-variant tracking-widest uppercase">Beyond the known universe</span>
+</div>
+<!-- Massive Headline -->
+<h1 class="flex flex-col">
+<span class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-white text-glow z-10 leading-none">JOURNEY</span>
+<span class="font-display-lg-mobile md:font-display-lg text-[64px] md:text-[110px] leading-none text-outline -mt-2 md:-mt-6 relative z-0 tracking-wide">BEYOND</span>
+<span class="font-headline-xl text-headline-xl text-primary italic font-serif mt-2 z-10">Stars.</span>
+</h1>
+<!-- Mission Statement -->
+<p class="font-body-md text-body-md md:font-body-lg md:text-body-lg text-on-surface-variant max-w-md mt-4">
+                    Humanity's relentless pursuit to explore the cosmos — pushing the edges of science, engineering, and the human spirit into the great expanse of the universe.
+                </p>
+<!-- Actions -->
+<div class="flex flex-wrap items-center gap-4 mt-8">
+<button class="bg-gradient-to-r from-primary-container to-secondary-container text-white px-8 py-3 rounded-full font-label-caps text-label-caps tracking-widest hover:glow-primary transition-all shadow-[0_0_20px_rgba(128,131,255,0.3)]">
+                        EXPLORE NOW
+                    </button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors group">
+<div class="w-10 h-10 rounded-full glass-panel flex items-center justify-center group-hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+<span class="font-label-caps text-label-caps">Watch Mission</span>
+</button>
+</div>
+</div>
+<!-- Side Cards (Bento style integration - visible on larger screens, stacked or hidden on mobile) -->
+<div class="hidden md:flex md:col-span-4 lg:col-span-3 flex-col gap-6 items-end justify-center">
+<!-- Card 1 -->
+<div class="glass-card rounded-xl p-1 relative overflow-hidden group w-full max-w-[240px] hover:glow-primary transition-all duration-500 cursor-pointer">
+<div class="w-full h-32 bg-cover bg-center rounded-lg opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A breathtaking view of Earth from low orbit, showing the curvature of the planet with a brilliant sunrise cresting the horizon over the dark ocean. High-end sci-fi UI aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBTZ8dl1qN35lOreLjs7cMaP3z2kcnxxwetyz_CuIo1aUd_B2E7uTmGaXapjcx0WXbDvuzGVkNa9Y4u_lzbu3CSbNYqNeXb58tNmvVDk23cmmpT6pSsDv0m9AVvJ3_jB5XMwC01G_PRqZJ8iqBXX_5ozNiXdnxzBF99rtWnSX6_67bCtvT4UtZ7lflPa-1kZ9WeBA4IbEk54bi_Pwg0O-_AxRBs1zqoLPjLInTrQfx0sbKYtW4Ije9e')"></div>
+<div class="absolute bottom-3 left-3">
+<p class="font-label-caps text-[10px] text-primary mb-1">01 — ORBIT</p>
+<p class="font-headline-lg text-body-lg text-white font-bold">Earth</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-card rounded-xl p-1 relative overflow-hidden group w-full max-w-[240px] hover:glow-accent transition-all duration-500 cursor-pointer">
+<div class="w-full h-32 bg-cover bg-center rounded-lg opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A massive, futuristic space rocket launching from a pad, billowing smoke and fire against a dusky sky. Dramatic lighting, highly detailed, cinematic framing fitting for a space exploration app." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuClguVvGvLVLyDjeXUWGHpFEkCH01XR9wl8u-XUO-mrgjpuNlg-ivaErOKor9V0GEhxYbk6uZxKA9UuCDJWIQSohpXE_7kcjhMieYqCe6dXaY1NQM_hRRI49NZh_qoNZqJfOWGQnVSMdKtzhKJ1hl0Lr0x7TgZr5l7R1kopvG4zwcUeaUMCwZPNvq4_-ovTD-wfAbnodOpk8lTnl7surobZmMSPhlwZN5coP9kWuimctWBLWg_0KMMX')"></div>
+<div class="absolute bottom-3 left-3">
+<p class="font-label-caps text-[10px] text-secondary mb-1">02 — LAUNCH</p>
+<p class="font-headline-lg text-body-lg text-white font-bold">Liftoff</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Stats Bar (Docked above nav on mobile, absolute bottom on desktop) -->
+<div class="fixed md:absolute bottom-[88px] md:bottom-0 left-0 w-full z-40 glass-panel border-t-0 md:border-t border-outline-variant/10">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-4 flex overflow-x-auto no-scrollbar gap-8 md:gap-16 items-center">
+<!-- Stat Item 1 (Image based) -->
+<div class="flex items-center gap-4 min-w-[250px]">
+<div class="w-16 h-12 rounded-lg bg-cover bg-center opacity-80" data-alt="A close up, stylized rendering of the red planet Mars, dusty and mysterious, set against the black void of space. Moody, atmospheric lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCDf8z0cLOeYp3lKmVTiQ3ZPGaLj3O4FSs9VYw2WbnAmQgbgjQxF1D3hIrzPGe1PZuwyN8XeCs9PAn8w9rXpEpCCF6fxNGGBAMkzo9y8ftfvrubrZUBdR4b0oHXB81P0EYIBuGELll3-2JIjJcFkfUxzC2CudcfIKxo0EaPVHSXn6aUSt7erb7vs5ufdhxaTWyKPOkSWLEXin6tBjwZUTr8E3zzqdF55221K6S3bOyebGiTKDtEbT9O')"></div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant mb-1 uppercase">Next crewed mission</p>
+<p class="font-stats-number text-stats-number text-white uppercase">MARS 2030</p>
+</div>
+</div>
+<!-- Divider -->
+<div class="w-px h-8 bg-outline-variant/30 hidden md:block"></div>
+<!-- Stat Item 2 -->
+<div class="min-w-[150px]">
+<p class="font-stats-number text-stats-number text-white border-b-2 border-primary/30 inline-block pb-1">384K</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant mt-2 uppercase">KM TO MOON</p>
+</div>
+<!-- Divider -->
+<div class="w-px h-8 bg-outline-variant/30 hidden md:block"></div>
+<!-- Stat Item 3 -->
+<div class="min-w-[150px]">
+<p class="font-stats-number text-stats-number text-white border-b-2 border-secondary-container/50 inline-block pb-1">225M</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant mt-2 uppercase">KM TO MARS</p>
+</div>
+<!-- Divider -->
+<div class="w-px h-8 bg-outline-variant/30 hidden md:block"></div>
+<!-- Stat Item 4 -->
+<div class="min-w-[150px]">
+<p class="font-stats-number text-stats-number text-white border-b-2 border-outline-variant/30 inline-block pb-1">12</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant mt-2 uppercase">MOON LANDINGS</p>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Shell (Mobile Only per JSON logic & Layout rules) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-surface-container/20 border-t-0 backdrop-blur-xl shadow-[0_-8px_40px_rgba(128,131,255,0.1)] rounded-t-xl">
+<!-- Universe (Active state based on "Universe / Explore" intent) -->
+<button class="flex flex-col items-center justify-center text-primary-fixed font-bold bg-primary-container/20 rounded-xl p-2 w-16 Active: scale-95 duration-200">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-caps text-[10px]">Universe</span>
+</button>
+<!-- Missions -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 w-16 hover:bg-surface-bright/50 transition-all Active: scale-95 duration-200">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">rocket</span>
+<span class="font-label-caps text-[10px]">Missions</span>
+</button>
+<!-- Crew -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 w-16 hover:bg-surface-bright/50 transition-all Active: scale-95 duration-200">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">group</span>
+<span class="font-label-caps text-[10px]">Crew</span>
+</button>
+<!-- Launches -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 w-16 hover:bg-surface-bright/50 transition-all Active: scale-95 duration-200">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">event_upcoming</span>
+<span class="font-label-caps text-[10px]">Launches</span>
+</button>
+</nav>
+</body></html>
